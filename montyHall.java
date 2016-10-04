@@ -51,16 +51,19 @@ public class montyHall
 	//determines whether or not the user switches doors
 	public static boolean getUserSwap()
 	{
-		System.out.println("Would you like to swap doors?");
+		System.out.println("Would you like to swap doors? (Yes/No) ");
 		Scanner tf = new Scanner(System.in);
 		String truefalse = tf.nextLine();
 		if(truefalse.equals("Yes") || truefalse.equals("yes"))
-		{
 			return true;
+		if(truefalse.equals("No") || truefalse.equals("no"))
+			return false;
+		else //if the answer is not yes or no, it calls itself again until a valid response is given
+		{
+			System.out.println("That's not a valid answer.");
+			getUserSwap();
 		}
-		else;
 		return false;
-		
 	}
 	//reveals a door with a goat in it
 	public static int revealDoor(int invalid1, int invalid2)
@@ -83,7 +86,28 @@ public class montyHall
 		Scanner input = new Scanner(System.in);
 		System.out.println("Pick a door, 1, 2, or 3");
 		String doorNumber = input.nextLine();
-		
-		return Integer.parseInt(doorNumber);
+		/*
+		if (Integer.valueOf(doorNumber) == int)
+		{
+			return Integer.parseInt(doorNumber);
+		}
+		else
+		{
+			System.out.println("That's not a valid answer.");
+			getUserDoor();
+		}
+		*/
+		int door = Integer.parseInt(doorNumber);
+		//Tests to make sure the input is valid
+		if (door < 4 && door > 0)
+		{
+			return door;
+		}
+		else
+		{
+			System.out.println("That's not a valid answer");
+			getUserDoor();
+		}
+		return -1;// should never get to this
 	}
 }
