@@ -1,6 +1,9 @@
 import java.util.Scanner;
 public class montyHall
 {
+	/**
+	@param String[] args
+	*/
 	public static void main(String[] args)
 	{
 		//declaring all variables.
@@ -25,6 +28,7 @@ public class montyHall
 
 		}
 		//if the user doesn't want to switch doors
+		
 		if (swap == false)
 		{
 			if (userDoor == carDoor)
@@ -38,6 +42,10 @@ public class montyHall
 		
 	}
 	//if the user switches doors, this will determine what doors are available to switch to and will switch to said doors
+	/**
+	@param takes in two integers, the users current door and the door revealed with a goat behind it.
+	@return returns a door that is not the revealed door or the user door
+	*/
 	public static int swapDoor(int revealed, int userDoor)
 	{
 
@@ -49,6 +57,9 @@ public class montyHall
 		return 5; 
 	}
 	//determines whether or not the user switches doors
+	/**
+	@return returns either true or false depending on what the user decides.
+	*/
 	public static boolean getUserSwap()
 	{
 		System.out.println("Would you like to swap doors? (Yes/No) ");
@@ -66,6 +77,10 @@ public class montyHall
 		return false;
 	}
 	//reveals a door with a goat in it
+	/**
+	@param two ints, which contain the user door and the car door.
+	@return an int, which is the door that has a goat behind it.
+	*/
 	public static int revealDoor(int invalid1, int invalid2)
 	{
 		int[] doors = {1,2,3};
@@ -81,6 +96,11 @@ public class montyHall
 		
 	}
 	//gets the users door
+	
+	/**
+	@return returns an int taken from the user.
+	*/
+	
 	public static int getUserDoor()
 	{
 		Scanner input = new Scanner(System.in);
